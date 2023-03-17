@@ -12,6 +12,7 @@ import * as bcrypt from 'bcrypt'
 import { hashString } from 'src/utils/hash'
 import { LoginUserDto } from './dto/login-user.dto'
 import { GetUserDto } from './dto/get-user.dto'
+import { Game } from 'src/game/entities/game.entity'
 
 @Injectable()
 export class UserService {
@@ -122,5 +123,23 @@ export class UserService {
         }
 
         return { ...user, password: undefined }
+    }
+
+    async joinGame(id: string, game: Game) {
+        const user = await this.findOne(id)
+        if (!user) {
+            throw new NotFoundException('User not found')
+        }
+        user.game = game
+        await this.userRepository.save(user)
+    }
+
+    async leaveGame(id: string) {
+        const user = await this.findOne(id)
+        if (!user) {
+            throw new NotFoundException('User not found')
+        }
+        user.game = null
+        await this.userRepository.save(user)
     }
 }

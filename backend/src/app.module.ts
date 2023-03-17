@@ -5,7 +5,12 @@ import { AppController } from './app.controller'
 import { AppService } from './app.service'
 import { UserModule } from './user/user.module'
 import { AuthModule } from './auth/auth.module'
+import { TaskModule } from './task/task.module'
+import { GameModule } from './game/game.module'
 import { User } from './user/entities/user.entity'
+import { Game } from './game/entities/game.entity'
+import { Task } from './task/entities/task.entity'
+import { Test } from './task/entities/test.entity'
 
 @Module({
     imports: [
@@ -20,12 +25,14 @@ import { User } from './user/entities/user.entity'
                 username: configService.get('DB_USER'),
                 password: configService.get('DB_PASS'),
                 database: configService.get('DB_DATABASE'),
-                entities: [User],
+                entities: [User, Game, Task, Test],
                 synchronize: true,
             }),
         }),
         UserModule,
         AuthModule,
+        TaskModule,
+        GameModule,
     ],
     controllers: [AppController],
     providers: [AppService],
