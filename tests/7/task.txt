@@ -1,2 +1,2 @@
-7
+Task 7
 write a function which takes a string and a number 'n' and returns an array of all the characters that are found exactly n times in the string

@@ -1,2 +1,2 @@
-12
+Task 12
 Write a Python function to sum all the numbers in an array

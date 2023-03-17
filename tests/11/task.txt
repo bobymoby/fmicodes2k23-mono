@@ -1,2 +1,2 @@
-11
+Task 11
 Write a Python function to find the minimum of array

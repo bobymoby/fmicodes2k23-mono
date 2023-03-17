@@ -1,2 +1,2 @@
-6
+Task 6
 write a function which takes a string and character and returns the number of times the character is in the string

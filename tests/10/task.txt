@@ -1,2 +1,2 @@
-10
+Task 10
 Write a Python function to find the maximum of array
