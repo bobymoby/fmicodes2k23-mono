@@ -23,16 +23,16 @@ export function EndGame(props:IEndGameProps) {
                 <h1>The imposter was: "{props.imposter}"</h1>
             </div>
             <div>
-            <a href="/lobby" className={styles.button}>
-                <div>
-                    <h1>Lobby</h1>
-                </div>
-            </a>
-            <a href="/mainMenu" className={styles.button}>
-                <div>
-                    <h1 >Main Menu</h1>
-                </div>
-            </a>
+                <a href="/lobby" className={styles.button}>
+                    <div>
+                        <h1>Lobby</h1>
+                    </div>
+                </a>
+                <a href="/mainMenu" className={styles.button}>
+                    <div>
+                        <h1 >Main Menu</h1>
+                    </div>
+                </a>
             </div>
 
         </div>
