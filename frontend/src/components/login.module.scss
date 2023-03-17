@@ -11,7 +11,19 @@
     border-radius: 10px; 
     font-family: 'Courier New', Courier, monospace;
 }
-
+.footer{
+    padding: 10px;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    button{
+        cursor: pointer;
+        padding: 10px;
+        font-size: 16px;
+        background-color: transparent;
+        border: none;
+    }
+}
 .card{
     position: relative;
     margin: 20px;
@@ -35,8 +47,6 @@
         font-size: 18px;
         background-color: transparent;
         border: none;
-        //box-shadow: 15px 10px 10px;
         border: 1px solid #fff;
-    
     }
 }
