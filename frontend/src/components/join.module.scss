@@ -1,0 +1,60 @@
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(191, 60, 60, 0.5);
+    box-sizing: border-box;
+    box-shadow: 0 2px 10px;
+    border-radius: 10px; 
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.card{
+    position: relative;
+    margin: 10px;
+    label{
+        font-size: 18px;
+        margin-bottom: 0px;
+    }
+    input{
+        width: 50%;
+        padding: 10px 0;
+        font-size: 18px;
+        color: #171414;
+        margin-bottom: 10px;
+        border: none;
+        border-bottom: 1px solid #fff;
+        background-color: transparent;
+    }
+    button{
+        width: 50%;
+        cursor: pointer;
+        margin: 5px;
+        padding: 10px;
+        font-size: 18px;
+        background-color: transparent;
+        border: none;
+        border: 1px solid #fff;
+    
+    }
+}
+
+.rules{
+    position: flex;
+    margin: 10px;
+    button{
+        align-self: flex-start;
+        width: 50%;
+        cursor: pointer;
+        margin: 5px;
+        padding: 10px;
+        font-size: 18px;
+        background-color: transparent;
+        border: none;
+        border: 1px solid #fff;
+        
+    }
+}
