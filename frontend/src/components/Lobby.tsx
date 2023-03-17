@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./lobby.module.scss"
 
 interface ICardProps
 {
@@ -14,21 +15,21 @@ interface ILobbyProps
 
 function Card(props: ICardProps){
     return (
-        <div>
-            <img src={props.image}/>
-            <div className="container">
-                <h4>{props.name}</h4>
-            </div>
+        <div className={styles.card}>
+            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"/>
+            <label>{props.name}</label>
         </div>
     )
 }
 
-//code, players
 export function Lobby(props: ILobbyProps){
     return (
-        <div>
-            {props.code ? <p>{props.code}</p> : ""}
+        <div className={styles.container}>
+            {props.code ? <p>🗝️{props.code}</p> : ""}
             {props.players.map((pl) => Card(pl))}
+            {props.players.length < 4 ? 
+                <p>Waiting for players...</p>
+                :""}
         </div>
     )
 
