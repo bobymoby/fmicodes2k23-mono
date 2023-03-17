@@ -1,1 +1,2 @@
+9
 Write a program which returns True if number is prime and False if it's not
