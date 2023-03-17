@@ -2,7 +2,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 400px;
+    width: 600px;
     padding: 40px;
     transform: translate(-50%, -50%);
     background: rgba(191, 60, 60, 0.5);
@@ -11,22 +11,18 @@
     border-radius: 10px; 
     font-family: 'Courier New', Courier, monospace;
 }
-.footer{
-    padding: 10px;
-    font-size: 16px;
-    background-color: transparent;
-    border: none;
-    button{
-        cursor: pointer;
-        padding: 10px;
-        font-size: 16px;
-        background-color: transparent;
-        border: none;
-    }
-}
+
 .card{
     position: relative;
     margin: 20px;
+    div{
+        height: 10px;
+    }
+    h1{
+        display: inline-block;
+        position: inherit;
+        padding: 10px;
+    }
     label{
         font-size: 18px;
     }
@@ -48,5 +44,30 @@
         background-color: transparent;
         border: none;
         border: 1px solid #fff;
+    
     }
+}
+.button{
+
+    margin: auto;
+    cursor: pointer;
+    display:inline-block;
+    height: 20px;
+    position: center;
+    left:50%;
+    div{
+        margin: 20px;
+        width: fit-content;
+        padding: 10px;
+        border: rgba(0,0,0,0.5);
+        background: rgba(191, 60, 60, 0.2);
+        border: 1px solid #fff;
+
+    }
+    h1{
+        margin: 0px;
+    }
+
+
+
 }

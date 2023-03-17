@@ -1,9 +1,10 @@
 import React from "react";
 import Register from "./Register";
 import styles from "./login.module.scss"
+import { render } from 'react-dom';
 
 function handleSignIn(){
-    <Register/>
+    console.log("clicked")
 }
 
 export default function Login(){
@@ -22,8 +23,8 @@ export default function Login(){
                     <button>SIGN IN</button>
                 </div>
             </form>
-            <div>
-                <p>Don't have an account? </p>
+            <div className={styles.footer}>
+                <p>Don't have an account? <button onClick={handleSignIn}>SIGN UP</button></p>
             </div>
         </div>
     )

@@ -1,28 +1,25 @@
+import styles from "./login.module.scss"
 
 
 export default function Register(){
     console.log("ds")
     return(
-        <div className="login">
+        <div className={styles.container}>
             <form>
-                <div className="login-box">
+                <div className={styles.card}>
                     <label htmlFor="username">Username</label>
                     <input type="text" name="username"/>
                 </div>
-                <div className="login-box">
+                <div className={styles.card}>
                     <label htmlFor="password">Password</label>
                     <input type="password" name="password"/>
                 </div>
-                <div className="login-box">
-                    <label htmlFor="conf-assword">Confirm Password</label>
-                    <input type="password" name="conf-assword"/>
-                </div>
-                <div className="login-box">
-                    <button>SIGN UP</button>
+                <div className={styles.card}>
+                    <button>SIGN IN</button>
                 </div>
             </form>
-            <div>
-                <p>Already have an account? <a>SIGN IN</a></p>
+            <div className={styles.footer}>
+                {/* <p>Don't have an account? <button onClick={handleSignIn}>SIGN UP</button></p> */}
             </div>
         </div>
     )
