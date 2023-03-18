@@ -87,6 +87,7 @@ export const RoomPage: React.FC = () => {
                     </div>
                     <div className={styles.card}>
                         <TaskConditionComponent task={selectedTask} />
+                        <button onClick={() => {}}> Submit Task</button>
                     </div>
                 </div>
             </div>

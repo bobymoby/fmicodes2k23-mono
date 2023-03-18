@@ -1,11 +1,12 @@
 .container {
+    color: #fff;
     position: absolute;
     top: 50%;
-    left: 45%;
+    left: 50%;
     width: 90%;
     padding: 40px;
     transform: translate(-50%, -50%);
-    background-color: #eaf7fc; 
+    background-color: #292C3D;
     box-sizing: border-box;
     border-radius: 10px;
     font-family: 'Courier New', Courier, monospace;
@@ -29,7 +30,7 @@
     width: 20%;
     height: 50px;
     display: inline-block;
-    background-color: #44f4eb9d;
+    background-color: rgba(107, 255, 77, 1);
     border-radius: 5px;
     border:1px solid  rgba(0,0,0,1);
     text-align: center;

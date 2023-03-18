@@ -1,11 +1,12 @@
 .container{
+    color: #fff;
     position: absolute;
-    top: 28%;
+    top: 35%;
     left: 50%;
     width: 50%;
     padding: 40px;
     transform: translate(-50%, -50%);
-    background-color: #EFF7FA;
+    background-color: #292C3D;
     box-sizing: border-box;
     border-radius: 10px; 
     font-family: 'Courier New', Courier, monospace;
@@ -52,7 +53,7 @@
     width: 100%;
     display: flex;
     a{
-        background:#44f4eb9d;
+        background-color: rgba(107, 255, 77, 1);
         cursor: pointer;
         padding: 10px;
         margin: 2px;

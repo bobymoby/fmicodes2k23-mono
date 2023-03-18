@@ -21,7 +21,7 @@ export const LoginPage: React.FC = () => {
                 <div className={styles.footer}>
                     <p>
                         Don't have an account?{' '}
-                        <a href='/register'>SIGN UP</a>
+                        <a href='/reg'>SIGN UP</a>
                     </p>
                 </div>
             </div>
