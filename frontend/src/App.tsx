@@ -12,7 +12,13 @@ import { socket } from './utils/socket'
 
 function App(){
     return (
-        <EndGamePage winningTeam={1} imposter="Pavel" userTeam={2}/>
+        <RoomPage tasks={[
+            {name:'name', task:'task', userId:2},
+            {name:'name', task:'task', userId:2},
+            {name:'name', task:'task', userId:2},
+            {name:'name', task:'task', userId:2},
+
+        ]}/>
     )
 }
 
