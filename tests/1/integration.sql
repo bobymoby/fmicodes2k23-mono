@@ -1,5 +1,5 @@
 INSERT INTO 'task' ('title', 'description')
-VALUES ('Task 1', ' write a function which returns the sum of the first and last element of an array')
+VALUES ('Sum First Last', ' write a function which returns the sum of the first and last element of an array')
 
 INSERT INTO 'test' ('input', 'output')
 VALUES ('1

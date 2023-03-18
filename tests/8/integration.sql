@@ -1,5 +1,5 @@
 INSERT INTO 'task' ('title', 'description')
-VALUES ('Task 8', 'Write a Python function to create and print a list where the values are the squares of numbers between 1 and a number (both included)')
+VALUES ('Squares 1-n', 'Write a Python function to create and print a list where the values are the squares of numbers between 1 and a number (both included)')
 
 INSERT INTO 'test' ('input', 'output')
 VALUES ('30', '1

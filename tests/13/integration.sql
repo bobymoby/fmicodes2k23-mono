@@ -1,5 +1,5 @@
 INSERT INTO 'task' ('title', 'description')
-VALUES ('Task 13', 'Write a Python function to multiply all the numbers in an array')
+VALUES ('Multiply', 'Write a Python function to multiply all the numbers in an array')
 
 INSERT INTO 'test' ('input', 'output')
 VALUES ('8

@@ -1,5 +1,5 @@
 INSERT INTO 'task' ('title', 'description')
-VALUES ('Task 10', 'Write a Python function to find the maximum of array')
+VALUES ('Max', 'Write a Python function to find the maximum of array')
 
 INSERT INTO 'test' ('input', 'output')
 VALUES ('10

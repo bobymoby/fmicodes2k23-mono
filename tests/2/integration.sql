@@ -1,5 +1,5 @@
 INSERT INTO 'task' ('title', 'description')
-VALUES ('Task2', 'write a function which takes an array and returns it with only even elements')
+VALUES ('Array Even', 'write a function which takes an array and returns it with only even elements')
 
 INSERT INTO 'test' ('input', 'output')
 VALUES ('1
