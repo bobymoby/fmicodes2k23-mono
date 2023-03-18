@@ -34,4 +34,10 @@ export class TaskController {
     test(@Param('id') id: number, @Body('code') code: string) {
         return this.testService.runTest(id, code)
     }
+
+    @ApiOperation({ summary: 'Set task code' })
+    @Post(':id')
+    setCode(@Param('id') id: number, @Body('code') code: string) {
+        return this.taskService.setCode(id, code)
+    }
 }

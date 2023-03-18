@@ -1,9 +1,12 @@
 import { Game } from 'src/game/entities/game.entity'
+import { Task } from 'src/task/entities/task.entity'
 import {
     Column,
     CreateDateColumn,
     Entity,
+    JoinColumn,
     ManyToOne,
+    OneToOne,
     PrimaryGeneratedColumn,
     UpdateDateColumn,
 } from 'typeorm'
@@ -24,6 +27,10 @@ export class User {
 
     @ManyToOne(() => Game, (game) => game.users)
     game: Game
+
+    @OneToOne(() => Task, (task) => task.openedBy)
+    @JoinColumn()
+    openTask: Task
 
     @CreateDateColumn()
     created_at: Date

@@ -15,7 +15,7 @@ export function LobbyPage(props: ILobbyProps) {
                 <LobbyCard image={player.image} name={player.username} />
             ))}
             {props.players.length < 4 ? <p>Waiting for players...</p> : ''}
-            <a href='/Main Menu'><div className={styles.button}>Main Menu</div></a>
+            <a href='/join'><div className={styles.button}>Main Menu</div></a>
         </div>
     )
 }

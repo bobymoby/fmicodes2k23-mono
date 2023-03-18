@@ -1,20 +1,20 @@
 import {
-    Controller,
-    Get,
-    Post,
     Body,
-    Patch,
-    Param,
+    Controller,
     Delete,
+    Get,
+    Param,
+    Patch,
+    Post,
     Query,
     UseGuards,
 } from '@nestjs/common'
-import { UserService } from './user.service'
-import { CreateUserDto } from './dto/create-user.dto'
-import { UpdateUserDto } from './dto/update-user.dto'
-import { GetUserDto } from './dto/get-user.dto'
 import { ApiOperation, ApiTags } from '@nestjs/swagger'
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard'
+import { CreateUserDto } from './dto/create-user.dto'
+import { GetUserDto } from './dto/get-user.dto'
+import { UpdateUserDto } from './dto/update-user.dto'
+import { UserService } from './user.service'
 
 @ApiTags('user')
 @Controller('user')
@@ -49,5 +49,11 @@ export class UserController {
     @Delete(':id')
     async remove(@Param('id') id: string) {
         return await this.userService.removeById(id)
+    }
+
+    @ApiOperation({ summary: "Set user's open task" })
+    @Post(':id')
+    async setOpenTask(@Param('id') id: string, @Body('taskId') taskId: number) {
+        return await this.userService.setOpenTask(id, taskId)
     }
 }
