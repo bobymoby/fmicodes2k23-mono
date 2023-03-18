@@ -10,11 +10,12 @@ interface ILobbyProps {
 export function LobbyPage(props: ILobbyProps) {
     return (
         <div className={styles.container}>
-            {props.code ? <p>🗝️{props.code}</p> : ''}
+            {props.code ? <p>Lobby Code: {props.code}</p> : ''}
             {props.players.map((player) => (
                 <LobbyCard image={player.image} name={player.username} />
             ))}
             {props.players.length < 4 ? <p>Waiting for players...</p> : ''}
+            <a href='/Main Menu'><div className={styles.button}>Main Menu</div></a>
         </div>
     )
 }
