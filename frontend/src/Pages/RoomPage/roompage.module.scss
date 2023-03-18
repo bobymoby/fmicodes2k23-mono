@@ -25,14 +25,17 @@
         border: 1px solid black;
     }
     .card:nth-child(1) {
-        height: 70%;
+        height: 75%;
     }
     .card:nth-child(2) {
-        height: 30%;
+        height: 25%;
+        border-top: 1px solid white;
     }
     .card {
         width: 100%;
-        border: 1px solid black;
+        h2{
+            text-align: center;
+        }
         // padding: 2px;
     }
 }

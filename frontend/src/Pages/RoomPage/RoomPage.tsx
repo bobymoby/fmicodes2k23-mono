@@ -2,6 +2,7 @@ import React from 'react'
 import { Task } from '../../types'
 import styles from './roompage.module.scss'
 import { TaskComponent } from '../../components/Task/TaskComponent'
+import { TaskConditionComponent } from '../../components/Task/TaskConditionComponent'
 
 interface IRoomPageProps {
     tasks: Task[]
@@ -13,11 +14,14 @@ export const RoomPage: React.FC<IRoomPageProps> = (props) => {
             <div className={styles.editor}>{/* TODO */}</div>
             <div className={styles.column}>
                 <div className={styles.card}>
+                <h2>All tasks:</h2>
                     {props.tasks.map((task) => (
-                        <TaskComponent name="name" task="task" userId={2} />
+                        TaskComponent(task)
                     ))}
                 </div>
-                <div className={styles.card}></div>
+                <div className={styles.card}>
+                    {TaskConditionComponent({name:"sdfsdfs", task:"sfgvsfgvsfdgrvds"})}
+                </div>
             </div>
         </div>
     )

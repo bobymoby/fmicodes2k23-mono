@@ -13,11 +13,19 @@ import { socket } from './utils/socket'
 function App(){
     return (
         <RoomPage tasks={[
-            {name:'name', task:'task', userId:2},
-            {name:'name', task:'task', userId:2},
-            {name:'name', task:'task', userId:2},
-            {name:'name', task:'task', userId:2},
-
+            {id: 1, name:'name1', task:'task', userId:3},
+            {id: 2, name:'name', task:'task', userId:2},
+            {id: 3, name:'name', task:'task', userId:0},
+            {id: 4, name:'name', task:'task', userId:2},
+            {id: 5, name:'name', task:'task', userId:2},
+            {id: 1, name:'name1', task:'task', userId:3},
+            {id: 2, name:'name', task:'task', userId:2},
+            {id: 3, name:'name', task:'task', userId:0},
+            {id: 4, name:'name', task:'task', userId:2},
+            {id: 5, name:'name', task:'task', userId:2},
+            {id: 1, name:'name1', task:'task', userId:3},
+            {id: 2, name:'name', task:'task', userId:2},
+            {id: 3, name:'name', task:'task', userId:0},
         ]}/>
     )
 }

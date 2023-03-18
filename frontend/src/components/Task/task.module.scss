@@ -1,7 +1,7 @@
 .list {
     display: flex;
     width: 95%;
-    font-size: 18px;
+    font-size: 16px;
     color: #171414;
     margin: 6px 6px 6px 6px;
     border: none;
@@ -18,10 +18,12 @@
 .name {
     width: 70%;
     border: 1px solid #fff;
+    border-radius: 5px;
     padding: 3px;
 }
 .seek {
     border: 1px solid #fff;
+    border-radius: 5px;
     width: 10%;
     text-align: center;
     padding: 3px;
