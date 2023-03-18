@@ -1,11 +1,11 @@
 .container {
     position: absolute;
     top: 50%;
-    left: 50%;
-    width: 70%;
+    left: 45%;
+    width: 90%;
     padding: 40px;
     transform: translate(-50%, -50%);
-    background-color: #EFF7FA; 
+    background-color: #eaf7fc; 
     box-sizing: border-box;
     border-radius: 10px;
     font-family: 'Courier New', Courier, monospace;
@@ -15,14 +15,29 @@
         font-weight: bold;
     }
 }
+.card{
+    text-align: left;
+
+    p{
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+}
 .button{
     width: 20%;
-    height: 30px;
+    height: 50px;
     display: inline-block;
     background-color: #44f4eb9d;
     border-radius: 5px;
     border:1px solid  rgba(0,0,0,1);
-    font-size: 20px;
-    padding-top: 10px;
     text-align: center;
+    text-decoration: none;
+    font-size: 30px;
+    color: rgba(0,0,0,1);
+    div{
+        padding-top: 10px;
+    }
+
 }
