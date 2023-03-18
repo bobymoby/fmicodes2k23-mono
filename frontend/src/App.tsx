@@ -16,28 +16,29 @@ import { VotePage } from './Pages/VotePage/VotePage'
 
 function App() {
     return (
-        // <RoomPage tasks={[
-        //     {id: 1, name:'name1', task:'task', userId:3},
-        //     {id: 2, name:'name', task:'task', userId:2},
-        //     {id: 3, name:'name', task:'task', userId:0},
-        //     {id: 4, name:'name', task:'task', userId:2},
-        //     {id: 5, name:'name', task:'task', userId:2},
-        //     {id: 1, name:'name1', task:'task', userId:3},
-        //     {id: 2, name:'name', task:'task', userId:2},
-        //     {id: 3, name:'name', task:'task', userId:0},
-        //     {id: 4, name:'name', task:'task', userId:2},
-        //     {id: 5, name:'name', task:'task', userId:2},
-        //     {id: 1, name:'name1', task:'task', userId:3},
-        //     {id: 2, name:'name', task:'task', userId:2},
-        //     {id: 3, name:'name', task:'task', userId:0},
-        // ]}/>
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<LoginPage />} />
-                <Route path="/reg" element={<RegisterPage />} />
-                <Route path="/poc" element={<POCEvent />} />
-            </Routes>
-        </BrowserRouter>
+        <RoomPage tasks={[
+            {id: 1, name:'name1', task:'task', userId:3},
+            {id: 2, name:'name', task:'task', userId:2},
+            {id: 3, name:'name', task:'task', userId:0},
+            {id: 4, name:'name', task:'task', userId:2},
+            {id: 5, name:'name', task:'task', userId:2},
+            {id: 1, name:'name1', task:'task', userId:3},
+            {id: 2, name:'name', task:'task', userId:2},
+            {id: 3, name:'name', task:'task', userId:0},
+            {id: 4, name:'name', task:'task', userId:2},
+            {id: 5, name:'name', task:'task', userId:2},
+            {id: 1, name:'name1', task:'task', userId:3},
+            {id: 2, name:'name', task:'task', userId:2},
+            {id: 3, name:'name', task:'task', userId:0},
+        ]}/>
+        // <BrowserRouter>
+        //     <Routes>
+        //         <Route path="/" element={<LoginPage />} />
+        //         <Route path="/reg" element={<RegisterPage />} />
+                
+        //         <Route path="/poc" element={<POCEvent />} />
+        //     </Routes>
+        // </BrowserRouter>
     )
 }
 

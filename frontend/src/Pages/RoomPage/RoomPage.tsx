@@ -3,6 +3,7 @@ import { Task } from '../../types'
 import styles from './roompage.module.scss'
 import { TaskComponent } from '../../components/Task/TaskComponent'
 import { TaskConditionComponent } from '../../components/Task/TaskConditionComponent'
+import Editor from '@monaco-editor/react'
 
 interface IRoomPageProps {
     tasks: Task[]
@@ -11,7 +12,9 @@ interface IRoomPageProps {
 export const RoomPage: React.FC<IRoomPageProps> = (props) => {
     return (
         <div className={styles.container}>
-            <div className={styles.editor}>{/* TODO */}</div>
+            <div className={styles.editor}>
+                <Editor height="100%" language="python" value="print('Hello, World!');" />
+            </div>
             <div className={styles.column}>
                 <div className={styles.card}>
                 <h2>All tasks:</h2>
