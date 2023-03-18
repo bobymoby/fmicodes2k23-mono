@@ -31,6 +31,7 @@ export class GameController {
     @Post('join')
     @UseGuards(JwtAuthGuard)
     join(@Request() req) {
+        console.log('join')
         return this.gameService.join(req.user.id)
     }
 

@@ -46,6 +46,7 @@ export class TestService {
                 message: stderr,
             }
         }
+        stdout = stdout.trim()
         if (stdout !== test.output) {
             return {
                 status: 'error',

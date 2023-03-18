@@ -18,16 +18,18 @@ import { Test } from './task/entities/test.entity'
         TypeOrmModule.forRootAsync({
             imports: [ConfigModule],
             inject: [ConfigService],
-            useFactory: async (configService: ConfigService) => ({
-                type: 'postgres',
-                host: configService.get<string>('DB_HOST'),
-                port: parseInt(configService.get('DB_PORT')),
-                username: configService.get('DB_USER'),
-                password: configService.get('DB_PASS'),
-                database: configService.get('DB_DATABASE'),
-                entities: [User, Game, Task, Test],
-                synchronize: true,
-            }),
+            useFactory: async (configService: ConfigService) => {
+                return {
+                    type: 'postgres',
+                    host: configService.get<string>('DB_HOST'),
+                    port: parseInt(configService.get('DB_PORT')),
+                    username: configService.get('DB_USER'),
+                    password: configService.get('DB_PASS'),
+                    database: configService.get('DB_DATABASE'),
+                    entities: [User, Game, Task, Test],
+                    synchronize: true,
+                }
+            },
         }),
         UserModule,
         AuthModule,
