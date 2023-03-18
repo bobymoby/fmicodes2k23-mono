@@ -13,17 +13,22 @@ export const RoomPage: React.FC<IRoomPageProps> = (props) => {
     return (
         <div className={styles.container}>
             <div className={styles.editor}>
-                <Editor height="100%" language="python" value="print('Hello, World!');" />
+                <Editor
+                    height="100%"
+                    language="python"
+                    value="print('Hello, World!');"
+                />
             </div>
             <div className={styles.column}>
                 <div className={styles.card}>
-                <h2>All tasks:</h2>
-                    {props.tasks.map((task) => (
-                        TaskComponent(task)
-                    ))}
+                    <h2>All tasks:</h2>
+                    {props.tasks.map((task) => TaskComponent(task))}
                 </div>
                 <div className={styles.card}>
-                    {TaskConditionComponent({name:"sdfsdfs", task:"sfgvsfgvsfdgrvds"})}
+                    {TaskConditionComponent({
+                        name: 'sdfsdfs',
+                        task: 'sfgvsfgvsfdgrvds',
+                    })}
                 </div>
             </div>
         </div>

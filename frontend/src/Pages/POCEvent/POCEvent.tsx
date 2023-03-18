@@ -14,10 +14,10 @@ export const POCEvent = () => {
         socket.emit('getGameDetails', {
             userId,
         })
+        socket.on('gameState/' + gameId, (data) => {
+            setTasks(data.game.tasks)
+        })
     }
-    socket.on('gameState/' + gameId, (data) => {
-        setTasks(data.game.tasks)
-    })
 
     const selectTask = async (task: any) => {
         fetch('http://localhost:3000/user/' + userId, {
