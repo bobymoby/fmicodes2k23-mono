@@ -13,6 +13,7 @@ interface IRoomProp
 }
 
 function Task(props: ITaskProp){
+    {console.log(props)}
     return (
         <div className={styles.list}>
             <div className={styles.icon}>{props.userId ? <img src="./lock-icon-11.png"/> : <img src="./lock-icon-11.pngarrow-icon-28.png"/>}</div>
@@ -27,7 +28,9 @@ export default function(props: IRoomProp){
         <div className={styles.container}>
             
             <div className={styles.editor}>
-                {/* TODO */}
+                <textarea >
+
+                </textarea>
             </div>
             <div className={styles.column}>
                 <div className={styles.card}>

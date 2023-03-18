@@ -6,7 +6,9 @@ export type Player = {
 
 //WIP
 export type Task = {
+    id: any
     name: string
     task: string
     userId: any
+
 }
