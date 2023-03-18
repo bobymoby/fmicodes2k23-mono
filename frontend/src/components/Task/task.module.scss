@@ -2,13 +2,14 @@
     display: flex;
     width: 95%;
     font-size: 16px;
-    color: #171414;
+    color: #fff;
     margin: 6px 6px 6px 6px;
     border: none;
     background-color: transparent;
 }
 .list:hover {
-    background-color: #44f4eb9d;
+    
+    background-color: rgba(107, 255, 77, 0.588);
     border-radius: 5px;
 }
 .icon {
