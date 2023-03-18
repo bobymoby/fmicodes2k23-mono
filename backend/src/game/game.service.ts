@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { TaskService } from 'src/task/task.service'
 import { UserService } from 'src/user/user.service'
-import { randUnder } from 'src/utils/rand'
+import { randUnder } from 'src/utils/randUnder'
 import { Repository } from 'typeorm'
 import { Game, GameStatus } from './entities/game.entity'
 
