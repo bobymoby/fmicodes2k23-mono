@@ -27,7 +27,7 @@ export const RulesPage: React.FC = () => {
                     debuggers win.
                 </p>
             </div>
-            <a href="/mainMenu"className={styles.button}>
+            <a href="/join"className={styles.button}>
                 <div>
                     <strong>Main Menu</strong>
                 </div>

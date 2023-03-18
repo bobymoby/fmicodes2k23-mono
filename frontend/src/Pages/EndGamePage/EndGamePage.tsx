@@ -27,7 +27,7 @@ export const EndGamePage: React.FC<IEndGameProps> = (props) => {
                         Lobby
                     
                 </a>
-                <a href="/mainMenu">
+                <a href="/join">
                     
                         Main Menu
                     
