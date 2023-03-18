@@ -14,78 +14,30 @@ import Room from './components/Room'
 import { RulesPage } from './Pages/RulesPage/RulesPage'
 import { VotePage } from './Pages/VotePage/VotePage'
 
+function App(){
+    return (
+        <RoomPage tasks={[
+            {name:'name', task:'task', userId:2},
+            {name:'name', task:'task', userId:2},
+            {name:'name', task:'task', userId:2},
+            {name:'name', task:'task', userId:2},
+
+        ]}/>
+    )
+}
+
 // function App() {
 //     return (
-//         <div className="App">
-//             <RoomPage
-//                 tasks={[
-//                     {
-//                         name: 'task2',
-//                         task: 'tasktasktasktasktasktask tasktasktasktasktasktask',
-//                         userId: 2,
-//                     },
-//                     {
-//                         name: 'task2',
-//                         task: 'tasktasktasktasktasktask tasktasktasktasktasktask',
-//                         userId: 0,
-//                     },
-//                     {
-//                         name: 'task2',
-//                         task: 'tasktasktasktasktasktask tasktasktasktasktasktask',
-//                         userId: 0,
-//                     },
-//                     {
-//                         name: 'task2',
-//                         task: 'tasktasktasktasktasktask tasktasktasktasktasktask',
-//                         userId: 0,
-//                     },
-//                     {
-//                         name: 'task2',
-//                         task: 'tasktasktasktasktasktask tasktasktasktasktasktask',
-//                         userId: 2,
-//                     },
-//                     {
-//                         name: 'task2',
-//                         task: 'tasktasktasktasktasktask tasktasktasktasktasktask',
-//                         userId: 2,
-//                     },
-//                     {
-//                         name: 'task2',
-//                         task: 'tasktasktasktasktasktask tasktasktasktasktasktask',
-//                         userId: 2,
-//                     },
-//                     {
-//                         name: 'task2',
-//                         task: 'tasktasktasktasktasktask tasktasktasktasktasktask',
-//                         userId: 2,
-//                     },
-//                     {
-//                         name: 'task2',
-//                         task: 'tasktasktasktasktasktask tasktasktasktasktasktask',
-//                         userId: 0,
-//                     },
-//                     {
-//                         name: 'task2',
-//                         task: 'tasktasktasktasktasktask tasktasktasktasktasktask',
-//                         userId: 0,
-//                     },
-//                     {
-//                         name: 'task2',
-//                         task: 'tasktasktasktasktasktask tasktasktasktasktasktask',
-//                         userId: 0,
-//                     },
-//                     {
-//                         name: 'task2',
-//                         task: 'tasktasktasktasktasktask tasktasktasktasktasktask',
-//                         userId: 2,
-//                     },
-//                     {
-//                         name: 'task2',
-//                         task: 'tasktasktasktasktasktask tasktasktasktasktasktask',
-//                         userId: 2,
-//                     },
-//                 ]}
-//             />
+//         // <BrowserRouter>
+//         //     <Routes>
+//         //         <Route path="/" element={<LoginPage />} />
+//         //         <Route path="/reg" element={<RegisterPage />} />
+//         //         <Route path="/poc" element={<POCEvent />} />
+//         //     </Routes>
+//         // </BrowserRouter>
+//         <div>
+//             {/* {isConnected ? 'Connected' : 'Disconnected'}
+//             <POCEvent /> */}
 //         </div>
 //     )
 // }
@@ -119,5 +71,4 @@ function App() {
     //     </div>
     // )
 }
-
 export default App

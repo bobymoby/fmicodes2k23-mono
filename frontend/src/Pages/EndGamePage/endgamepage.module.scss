@@ -14,7 +14,6 @@
 .card{
     text-align: center;
     position: relative;
-    right: 10%;
     margin: 20px;
     div{
         height: 10px;
@@ -48,29 +47,52 @@
     
     }
 }
-.button{
 
-    left: 10%;
-    cursor: pointer;
-    display:inline-block;
-    height: 20px;
-    position: relative;
-    text-decoration: none;
-    color: rgba(0,0,0,1);
-    div{
-        margin: 20px;
-        width: fit-content;
-        padding: 10px;
-        border: rgba(0,0,0,0.5);
+.button{
+    width: 100%;
+    display: flex;
+    a{
         background:#44f4eb9d;
+        cursor: pointer;
+        padding: 10px;
+        margin: 2px;
         border-radius: 5px;
         border: 1px solid #fff;
-
+        display: block;
+        width: 50%;
+        height: 20%;
+        text-decoration: none;
+        color: #171414;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
     }
-    h1{
-        margin: 0px;
-    }
-
-
-
 }
+
+// .button{
+//     cursor: pointer;
+//     display:flex;
+//     height: 20px;
+//     position: relative;
+//     text-decoration: none;
+//     color: rgba(0,0,0,1);
+//     width: 100%;
+//     a div{
+//         padding: 10px;
+//         border: rgba(0,0,0,0.5);
+//         background:#44f4eb9d;
+//         border-radius: 5px;
+//         border: 1px solid #fff;
+//         text-align: center;
+//         cursor: pointer;
+//         height: 20px;
+//         position: relative;
+//         text-decoration: none;
+//         color: rgb(0, 0, 0);
+//         width:35%;
+//         margin: 5%;
+//     }
+//     h1{
+//         margin: 0px;
+//     }
+// }
