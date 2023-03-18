@@ -15,7 +15,7 @@ interface IRoomProp
 function Task(props: ITaskProp){
     return (
         <div className={styles.list}>
-            <div className={styles.icon}>{props.userId ? "🔒" : "👉"}</div>
+            <div className={styles.icon}>{props.userId ? <img src="./lock-icon-11.png"/> : <img src="./lock-icon-11.pngarrow-icon-28.png"/>}</div>
             <div className={styles.name}>{props.name}</div>
             <div className={styles.seek}>{props.userId ? props.userId : ""}</div>
         </div>

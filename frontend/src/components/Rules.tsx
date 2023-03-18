@@ -8,7 +8,7 @@ export function Rules() {
     return(
             <div>
                 <div>
-                    <h1>Rules: </h1>
+                    <h1 className={styles.container}>Rules: </h1>
                 </div>
                 <div>
                     <p>At the start of every game players are split into bugs and debugers</p>
