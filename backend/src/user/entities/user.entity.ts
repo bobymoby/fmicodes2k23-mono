@@ -1,7 +1,9 @@
+import { Game } from 'src/game/entities/game.entity'
 import {
     Column,
     CreateDateColumn,
     Entity,
+    ManyToOne,
     PrimaryGeneratedColumn,
     UpdateDateColumn,
 } from 'typeorm'
@@ -19,6 +21,9 @@ export class User {
 
     @Column({ nullable: true })
     image: string
+
+    @ManyToOne(() => Game, (game) => game.users)
+    game: Game
 
     @CreateDateColumn()
     created_at: Date
