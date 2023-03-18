@@ -1,23 +1,22 @@
-import React from "react";
-import styles from "./endgame.module.scss"
+import React from 'react'
+import styles from './endgamepage.module.scss'
 
-interface IEndGameProps{
-    imposter: string;
-    winningTeam: number;
-    userTeam: number;
+interface IEndGameProps {
+    imposter: string
+    winningTeam: number
+    userTeam: number
 }
 
-export function EndGame(props:IEndGameProps) {
+export const EndGamePage: React.FC<IEndGameProps> = (props) => {
     return (
         <div className={styles.container}>
             <div className={styles.card}>
                 <h1>Game Over!</h1>
-                {
-                (props.winningTeam == props.userTeam)?
-                    <h1>You Win!</h1> :
+                {props.winningTeam === props.userTeam ? (
+                    <h1>You Win!</h1>
+                ) : (
                     <h1>You Lose!</h1>
-                    
-                }
+                )}
             </div>
             <div className={styles.card}>
                 <h1>The imposter was: "{props.imposter}"</h1>
@@ -30,11 +29,10 @@ export function EndGame(props:IEndGameProps) {
                 </a>
                 <a href="/mainMenu" className={styles.button}>
                     <div>
-                        <h1 >Main Menu</h1>
+                        <h1>Main Menu</h1>
                     </div>
                 </a>
             </div>
-
         </div>
     )
 }
