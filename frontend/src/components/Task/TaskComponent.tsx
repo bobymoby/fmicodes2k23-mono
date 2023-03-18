@@ -1,23 +1,17 @@
+import { Task } from '../../types'
 import styles from './task.module.scss'
 
 interface ITaskProps {
-    name: string
-    task: string
-    userId: number
+    task: Task
+    onClick: () => void
 }
 
-function changeCurrent(id: string){
-    //TODO
-}
-
-export const TaskComponent: React.FC<ITaskProps> = (props) => {
+export const TaskComponent: React.FC<ITaskProps> = ({ task, onClick }) => {
     return (
-        <div className={styles.list} onClick={(e) => {changeCurrent(e.currentTarget.id)}}>
-            <div className={styles.icon}>{props.userId ? '🔒' : '👉'}</div>
-            <div className={styles.name}>{props.name}</div>
-            <div className={styles.seek}>
-                {props.userId ? props.userId : ''}
-            </div>
+        <div className={styles.list} onClick={onClick}>
+            <div className={styles.icon}>{!!task.openedBy ? '🔒' : '👉'}</div>
+            <div className={styles.name}>{task.title}</div>
+            <div className={styles.seek}>{task.openedBy?.username || ''}</div>
         </div>
     )
 }

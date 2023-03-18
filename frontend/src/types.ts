@@ -6,9 +6,15 @@ export type Player = {
 
 //WIP
 export type Task = {
-    id: any
-    name: string
-    task: string
-    userId: any
+    id: number
+    title: string
+    description: string
+    openedBy?: User
+    code: string
+}
 
+export type User = {
+    id: string
+    image?: string
+    username: string
 }
