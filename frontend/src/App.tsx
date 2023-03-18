@@ -14,61 +14,45 @@ import Room from './components/Room'
 import { RulesPage } from './Pages/RulesPage/RulesPage'
 import { VotePage } from './Pages/VotePage/VotePage'
 
-function App(){
+function App() {
     return (
-        <RoomPage tasks={[
-            {name:'name', task:'task', userId:2},
-            {name:'name', task:'task', userId:2},
-            {name:'name', task:'task', userId:2},
-            {name:'name', task:'task', userId:2},
-
-        ]}/>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<LoginPage />} />
+                <Route path="/reg" element={<RegisterPage />} />
+                <Route path="/poc" element={<POCEvent />} />
+            </Routes>
+        </BrowserRouter>
     )
 }
 
 // function App() {
-//     return (
-//         // <BrowserRouter>
-//         //     <Routes>
-//         //         <Route path="/" element={<LoginPage />} />
-//         //         <Route path="/reg" element={<RegisterPage />} />
-//         //         <Route path="/poc" element={<POCEvent />} />
-//         //     </Routes>
-//         // </BrowserRouter>
-//         <div>
-//             {/* {isConnected ? 'Connected' : 'Disconnected'}
-//             <POCEvent /> */}
-//         </div>
+//     const [isConnected, setIsConnected] = useState(socket.connected)
+
+//     useEffect(() => {
+//         socket.on('connect', () => {
+//             setIsConnected(true)
+//         })
+//         socket.on('disconnect', () => {
+//             setIsConnected(false)
+//         })
+//     }, [])
+//     return(
+//         <VotePage players={[{id:"123", username:"Danny", image:"123"}]}/>
 //     )
+// return (
+//     <BrowserRouter>
+//         <Routes>
+//             <Route path="/" element={<LoginPage />} />
+//             <Route path="/reg" element={<RegisterPage />} />
+//             <Route path="/poc" element={<POCEvent />} />
+//         </Routes>
+//     </BrowserRouter>
+//     <div>
+//         {isConnected ? 'Connected' : 'Disconnected'}
+//         <POCEvent />
+//         <EndGamePage imposter={"Pavel"} winningTeam={0} userTeam={1}/>
+//     </div>
+// )
 // }
-
-function App() {
-    const [isConnected, setIsConnected] = useState(socket.connected)
-
-    useEffect(() => {
-        socket.on('connect', () => {
-            setIsConnected(true)
-        })
-        socket.on('disconnect', () => {
-            setIsConnected(false)
-        })
-    }, [])
-    return(
-        <VotePage players={[{id:"123", username:"Danny", image:"123"}]}/>
-    )
-    // return (
-    //     <BrowserRouter>
-    //         <Routes>
-    //             <Route path="/" element={<LoginPage />} />
-    //             <Route path="/reg" element={<RegisterPage />} />
-    //             <Route path="/poc" element={<POCEvent />} />
-    //         </Routes>
-    //     </BrowserRouter>
-    //     <div>
-    //         {isConnected ? 'Connected' : 'Disconnected'}
-    //         <POCEvent />
-    //         <EndGamePage imposter={"Pavel"} winningTeam={0} userTeam={1}/>
-    //     </div>
-    // )
-}
 export default App
