@@ -21,16 +21,16 @@ export const EndGamePage: React.FC<IEndGameProps> = (props) => {
             <div className={styles.card}>
                 <h1>The imposter was: "{props.imposter}"</h1>
             </div>
-            <div>
-                <a href="/lobby" className={styles.button}>
-                    <div>
-                        <h1>Lobby</h1>
-                    </div>
+            <div className={styles.button}>
+                <a href="/lobby" >
+                    
+                        Lobby
+                    
                 </a>
-                <a href="/mainMenu" className={styles.button}>
-                    <div>
-                        <h1>Main Menu</h1>
-                    </div>
+                <a href="/mainMenu">
+                    
+                        Main Menu
+                    
                 </a>
             </div>
         </div>
