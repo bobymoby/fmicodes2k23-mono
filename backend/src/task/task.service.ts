@@ -36,6 +36,7 @@ export class TaskService {
     }
 
     async setCode(id: number, code: string) {
+        console.log(code)
         const task = await this.taskRepository.findOne({ where: { id } })
         if (!task) {
             throw new NotFoundException('Task not found')

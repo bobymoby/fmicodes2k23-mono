@@ -1,13 +1,20 @@
+import { Task } from '../../types'
 
-interface ITaskProps {
-    name: string
-    task: string
+interface ITaskConditionProps {
+    task: Task | null
 }
 
-export const TaskConditionComponent: React.FC<ITaskProps> = (props) => {
+export const TaskConditionComponent: React.FC<ITaskConditionProps> = ({
+    task,
+}) => {
     return (
         <div>
-            <h3>{props.name}:</h3> {props.task}
+            {(task && (
+                <>
+                    <h3>{task.title}:</h3>
+                    <p>{task.description}</p>
+                </>
+            )) || <h3>No task selected</h3>}
         </div>
     )
 }

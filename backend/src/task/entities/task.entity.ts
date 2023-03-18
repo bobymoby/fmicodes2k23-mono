@@ -21,7 +21,7 @@ export class Task {
     @Column()
     description: string
 
-    @Column({ nullable: true })
+    @Column({ default: '' })
     code: string
 
     @OneToMany(() => Test, (test) => test.task)
