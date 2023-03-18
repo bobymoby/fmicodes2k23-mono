@@ -1,8 +1,11 @@
 INSERT INTO 'task' ('title', 'description')
-VALUES ('Task 3', 'write a function which takes a number and returns it with digits in ascending order')
+VALUES ('Task 4', 'write a function which takes a number and returns an array with all prime numbers up to it')
 
 INSERT INTO 'test' ('input', 'output')
-VALUES ('54321', '12345')
+VALUES ('10', '2
+ 3
+ 5
+ 7')
 
 INSERT INTO 'test' ('input', 'output')
-VALUES ('11111', '11111')
+VALUES ('', '')
