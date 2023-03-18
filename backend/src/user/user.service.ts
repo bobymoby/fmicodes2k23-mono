@@ -4,21 +4,23 @@ import {
     NotFoundException,
 } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
+import * as bcrypt from 'bcrypt'
+import { Game } from 'src/game/entities/game.entity'
+import { TaskService } from 'src/task/task.service'
+import { hashString } from 'src/utils/hash'
 import { DeleteResult, Repository, UpdateResult } from 'typeorm'
 import { CreateUserDto } from './dto/create-user.dto'
+import { GetUserDto } from './dto/get-user.dto'
+import { LoginUserDto } from './dto/login-user.dto'
 import { UpdateUserDto } from './dto/update-user.dto'
 import { User } from './entities/user.entity'
-import * as bcrypt from 'bcrypt'
-import { hashString } from 'src/utils/hash'
-import { LoginUserDto } from './dto/login-user.dto'
-import { GetUserDto } from './dto/get-user.dto'
-import { Game } from 'src/game/entities/game.entity'
 
 @Injectable()
 export class UserService {
     constructor(
         @InjectRepository(User)
-        private userRepository: Repository<User>,
+        public readonly userRepository: Repository<User>,
+        private readonly taskService: TaskService,
     ) {}
 
     async create(createUserDto: CreateUserDto): Promise<User> {
@@ -140,6 +142,27 @@ export class UserService {
             throw new NotFoundException('User not found')
         }
         user.game = null
+        await this.userRepository.save(user)
+    }
+
+    async setOpenTask(id: string, taskId: number) {
+        const user = await this.findOne(id)
+        if (!user) {
+            throw new NotFoundException('User not found')
+        }
+        if (taskId === -1) {
+            user.openTask = null
+            await this.userRepository.save(user)
+            return
+        }
+        const task = await this.taskService.findOne(taskId)
+        if (!task) {
+            throw new NotFoundException('Task not found')
+        }
+        if (task.openedBy) {
+            throw new ConflictException('Task is already opened')
+        }
+        user.openTask = task
         await this.userRepository.save(user)
     }
 }

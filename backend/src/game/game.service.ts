@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
+import { Socket } from 'dgram'
 import { TaskService } from 'src/task/task.service'
 import { UserService } from 'src/user/user.service'
 import { randUnder } from 'src/utils/randUnder'
@@ -98,5 +99,27 @@ export class GameService {
 
     leave(userId: string) {
         this.userService.leaveGame(userId)
+    }
+
+    async sendStateWithSocket(userId: string, client: Socket) {
+        const user = await this.userService.userRepository.findOne({
+            where: { id: userId },
+            relations: ['game'],
+        })
+        if (!user) {
+            throw new NotFoundException('User not found')
+        }
+        const game = await this.gameRepository.findOne({
+            where: { id: user.game.id },
+            relations: ['users', 'tasks', 'imposter', 'tasks.openedBy'],
+        })
+        if (!game) {
+            throw new NotFoundException('User not in game')
+        }
+        if (game.status === GameStatus.WAITINGSOCKET) {
+            game.status = GameStatus.STARTED
+            this.gameRepository.save(game)
+        }
+        client.emit('gameState/' + game.id, { game })
     }
 }

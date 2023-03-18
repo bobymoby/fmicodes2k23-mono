@@ -1,16 +1,19 @@
 import {
-    WebSocketGateway,
-    SubscribeMessage,
     MessageBody,
-    ConnectedSocket,
+    SubscribeMessage,
+    WebSocketGateway,
+    WebSocketServer,
 } from '@nestjs/websockets'
-import { GameService } from './game.service'
-import { UpdateGameDto } from './dto/update-game.dto'
 import { Socket } from 'dgram'
+import { UpdateGameDto } from './dto/update-game.dto'
+import { GameService } from './game.service'
 
 @WebSocketGateway({ cors: true })
 export class GameGateway {
     constructor(private readonly gameService: GameService) {}
+
+    @WebSocketServer()
+    server: Socket
 
     @SubscribeMessage('updateGame')
     update(@MessageBody() updateGameDto: UpdateGameDto) {
@@ -19,38 +22,8 @@ export class GameGateway {
     }
 
     @SubscribeMessage('getGameDetails')
-    getRoom(@MessageBody() body, @ConnectedSocket() client: Socket) {
-        client.emit('gameDetails', {
-            tasks: [
-                {
-                    name: 'Task 1',
-                    open: false,
-                },
-                {
-                    name: 'Task 2',
-                    open: false,
-                },
-                {
-                    name: 'Task 3',
-                    open: false,
-                },
-                {
-                    name: 'Task 4',
-                    open: false,
-                },
-                {
-                    name: 'Task 5',
-                    open: true,
-                },
-                {
-                    name: 'Task 6',
-                    open: false,
-                },
-                {
-                    name: 'Task 7',
-                    open: false,
-                },
-            ],
-        })
+    getRoom(@MessageBody() body) {
+        const { userId } = body
+        return this.gameService.sendStateWithSocket(userId, this.server)
     }
 }
