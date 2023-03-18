@@ -1,0 +1,27 @@
+.list {
+    display: flex;
+    width: 95%;
+    font-size: 18px;
+    color: #171414;
+    margin: 6px 6px 6px 6px;
+    border: none;
+    background-color: transparent;
+}
+.list:hover {
+    background-color: rgba(191, 60, 60, 0.5);
+}
+.icon {
+    width: 10%;
+    padding-left: 6%;
+}
+.name {
+    width: 70%;
+    border: 1px solid #fff;
+    padding: 3px;
+}
+.seek {
+    border: 1px solid #fff;
+    width: 10%;
+    text-align: center;
+    padding: 3px;
+}

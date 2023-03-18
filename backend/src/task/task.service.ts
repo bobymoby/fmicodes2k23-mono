@@ -9,7 +9,6 @@ export class TaskService {
     constructor(
         @InjectRepository(Task)
         private readonly taskRepository: Repository<Task>,
-        private readonly testService: TestService,
     ) {}
     findAll() {
         return this.taskRepository.find({ relations: ['tests'] })

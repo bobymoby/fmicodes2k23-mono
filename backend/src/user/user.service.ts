@@ -103,7 +103,7 @@ export class UserService {
         return this.userRepository.update({ username }, { ...details })
     }
 
-    async removeById(id: string): Promise<DeleteResult> {
+    removeById(id: string): Promise<DeleteResult> {
         return this.userRepository.delete(id)
     }
 

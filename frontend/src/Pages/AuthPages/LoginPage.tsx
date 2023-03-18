@@ -1,25 +1,30 @@
-import styles from "./login.module.scss"
+import styles from './login.module.scss'
 
+function handleSignIn() {
+    console.log('clicked')
+}
 
-export default function Register(){
-    console.log("ds")
-    return(
+export const LoginPage: React.FC = () => {
+    return (
         <div className={styles.container}>
             <form>
                 <div className={styles.card}>
                     <label htmlFor="username">Username</label>
-                    <input type="text" name="username"/>
+                    <input type="text" name="username" />
                 </div>
                 <div className={styles.card}>
                     <label htmlFor="password">Password</label>
-                    <input type="password" name="password"/>
+                    <input type="password" name="password" />
                 </div>
                 <div className={styles.card}>
                     <button>SIGN IN</button>
                 </div>
             </form>
             <div className={styles.footer}>
-                {/* <p>Don't have an account? <button onClick={handleSignIn}>SIGN UP</button></p> */}
+                <p>
+                    Don't have an account?{' '}
+                    <button onClick={handleSignIn}>SIGN UP</button>
+                </p>
             </div>
         </div>
     )
