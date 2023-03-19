@@ -10,9 +10,10 @@ import { useSearchParams } from 'react-router-dom'
 import Countdown from 'react-countdown'
 
 const USERS = [
-    'd8a9086f-1108-4c8c-991c-f34e13f0768a',
-    'af698491-968d-48a3-8331-ec519528d037',
-    '0caa98e8-ead2-4928-8015-7856f61d4b3a',
+    'c6cb8059-d2f0-4ca6-9810-2d5836ee45fb',
+    '87f71115-7c6b-48f1-95b5-93d0c57f3d05',
+    'f25f48ac-01c8-4417-9c5f-dbea25993d8b',
+    '8b730986-bebb-4ef7-ae75-e31d95884a4a',
 ]
 
 interface IRoomPageProps {
@@ -21,7 +22,7 @@ interface IRoomPageProps {
 export const RoomPage: React.FC<IRoomPageProps> = ({ endGame }) => {
     const [tasks, setTasks] = useState<Task[]>([])
     const [selectedTask, setSelectedTask] = useState<Task | null>(null)
-    const gameId = '3a926831-5c2b-4f65-b90e-eb79b94001cc'
+    const gameId = 'bd309693-3989-4e03-9682-526c5d2562f2'
     const [userId, setUserId] = useState('')
     const [code, setCode] = useState('')
     const [time, setTime] = useState(Date().toString())
@@ -42,8 +43,6 @@ export const RoomPage: React.FC<IRoomPageProps> = ({ endGame }) => {
 
     useEffect(() => {
         setUserId(USERS[parseInt(searchParams.get('user') || '0')])
-
-        console.log(time)
     }, [])
 
     useEffect(() => {
@@ -116,7 +115,7 @@ export const RoomPage: React.FC<IRoomPageProps> = ({ endGame }) => {
                     <TaskConditionComponent task={selectedTask} />
                     <Countdown
                         // date={Date.now() + 180000}
-                        date={Date.now() + 10000}
+                        date={Date.now() + 60000}
                         renderer={countdownRenderer}
                         onComplete={() => {
                             endGame()

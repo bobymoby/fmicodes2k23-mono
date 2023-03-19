@@ -24,7 +24,7 @@ export class TaskController {
     }
 
     @ApiOperation({ summary: 'Create task' })
-    @Post('create')
+    @Post()
     create() {
         return this.taskService.create()
     }

@@ -11,6 +11,7 @@ import { Game, GameStatus } from './entities/game.entity'
 @Injectable()
 export class GameService {
     readonly MAX_PLAYERS = 4
+    readonly TASKCOUNT = 10
     constructor(
         @InjectRepository(Game)
         private gameRepository: Repository<Game>,
@@ -54,10 +55,7 @@ export class GameService {
             relations: ['users'],
         })
 
-        console.log({ waitingGames })
-
         if (waitingGames.length > 0) {
-            console.log('joining game')
             await this.userService.joinGame(userId, waitingGames[0])
             let currentGame = await this.findOne(waitingGames[0].id)
             if (currentGame.users.length === this.MAX_PLAYERS) {
@@ -65,7 +63,6 @@ export class GameService {
             }
             return currentGame
         }
-        console.log('creating game')
         return this.create(userId)
     }
 
@@ -93,7 +90,7 @@ export class GameService {
         const imposterIndex = randUnder(game.users.length)
         game.imposter = game.users[imposterIndex]
 
-        const tasks = await this.taskService.findNRand(5)
+        const tasks = await this.taskService.findNRand(this.TASKCOUNT)
         game.tasks = tasks
 
         return this.gameRepository.save(game)

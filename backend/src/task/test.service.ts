@@ -33,7 +33,7 @@ export class TestService {
         let stderr
         try {
             const data = await execAsync(
-                `cat ${idPath}.in | python ${idPath}.py`,
+                `cat ${idPath}.in | python3 ${idPath}.py`,
                 {},
             )
             stdout = data.stdout

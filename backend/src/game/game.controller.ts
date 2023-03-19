@@ -28,7 +28,7 @@ export class GameController {
     }
 
     @ApiOperation({ summary: "Run all game's tasks' tests" })
-    @Get(':id/tests')
+    @Post(':id/tests')
     tests(@Param('id') id: string) {
         return this.gameService.runGameTests(id)
     }
@@ -37,7 +37,6 @@ export class GameController {
     @Post('join')
     @UseGuards(JwtAuthGuard)
     join(@Request() req) {
-        console.log('join')
         return this.gameService.join(req.user.id)
     }
 
