@@ -28,7 +28,7 @@ export class GameController {
     }
 
     @ApiOperation({ summary: "Run all game's tasks' tests" })
-    @Post(':id/tests')
+    @Get(':id/tests')
     tests(@Param('id') id: string) {
         return this.gameService.runGameTests(id)
     }

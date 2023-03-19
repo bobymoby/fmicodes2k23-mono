@@ -15,24 +15,43 @@ import { Kick } from './Pages/KickPage/Kick'
 
 function App() {
     const [shouldRedirect, setShouldRedirect] = useState(false)
+    const [shouldRedirectToKick, setRedirectToKick] = useState(false)
+    const [shouldRedirectToEnd, setRedirectToEnd] = useState(false)
     const onEndGame = () => {
         setShouldRedirect(true)
     }
     return (
         <BrowserRouter>
-        <head>
-            <meta name="viewport" content="initial-scale=1, user-scalable=no"></meta>
-        </head>
+            <head>
+                <meta
+                    name="viewport"
+                    content="initial-scale=1, user-scalable=no"
+                ></meta>
+            </head>
             <Routes>
                 <Route path="/" element={<LoginPage />} />
                 <Route path="/reg" element={<RegisterPage />} />
                 <Route path="/poc" element={<POCEvent />} />
-                <Route path="kick" element={<Kick id="123" username='user' image="image"/>} />
+                <Route
+                    path="/kick"
+                    element={
+                        shouldRedirectToEnd ? (
+                            <Navigate replace to="/end" />
+                        ) : (
+                            <Kick
+                                id="123"
+                                username="pavel"
+                                image="image"
+                                redirectToEnd={() => setRedirectToEnd(true)}
+                            />
+                        )
+                    }
+                />
                 <Route
                     path="/room"
                     element={
                         shouldRedirect ? (
-                            <Navigate replace to="/end" />
+                            <Navigate replace to="/vote" />
                         ) : (
                             <RoomPage endGame={onEndGame} />
                         )
@@ -54,13 +73,37 @@ function App() {
                 <Route
                     path="/vote"
                     element={
-                        <VotePage
-                            players={[
-                                { id: 'aa', username: 'aab', image: 'aab' },
-                            ]}
-                            userId={'123'}
-                            votes={[1, 2, 3]}
-                        />
+                        shouldRedirectToKick ? (
+                            <Navigate replace to="/kick" />
+                        ) : (
+                            <VotePage
+                                players={[
+                                    {
+                                        id: 'aa',
+                                        username: 'borimir',
+                                        image: 'aab',
+                                    },
+                                    {
+                                        id: 'aa',
+                                        username: 'pavel',
+                                        image: 'aab',
+                                    },
+                                    {
+                                        id: 'aa',
+                                        username: 'daria',
+                                        image: 'aab',
+                                    },
+                                    {
+                                        id: 'aa',
+                                        username: 'daniel',
+                                        image: 'aab',
+                                    },
+                                ]}
+                                userId={'123'}
+                                votes={[1, 2, 3]}
+                                redirectToEnd={() => setRedirectToKick(true)}
+                            />
+                        )
                     }
                 />
                 <Route

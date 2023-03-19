@@ -3,24 +3,24 @@ VALUES ('Squares 1-n', 'Write a Python function to create and print a list where
 
 INSERT INTO 'test' ('input', 'output')
 VALUES ('30', '1
- 4
- 9
- 16
- 25
- 36
- 49
- 64
- 81
- 100
- 121
- 144
- 169
- 196
- 225
- 256
- 289
- 324
- 361
+4
+9
+16
+25
+36
+49
+64
+81
+100
+121
+144
+169
+196
+225
+256
+289
+324
+361
  ')
 
 INSERT INTO 'test' ('input', 'output')

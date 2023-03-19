@@ -25,7 +25,7 @@ export const RoomPage: React.FC<IRoomPageProps> = ({ endGame }) => {
     const gameId = 'bd309693-3989-4e03-9682-526c5d2562f2'
     const [userId, setUserId] = useState('')
     const [code, setCode] = useState('')
-    const [time, setTime] = useState(Date().toString())
+    const [time, setTime] = useState(Date.now() + 120000)
 
     const [searchParams, setSearchParams] = useSearchParams()
 
@@ -115,7 +115,7 @@ export const RoomPage: React.FC<IRoomPageProps> = ({ endGame }) => {
                     <TaskConditionComponent task={selectedTask} />
                     <Countdown
                         // date={Date.now() + 180000}
-                        date={Date.now() + 60000}
+                        date={time}
                         renderer={countdownRenderer}
                         onComplete={() => {
                             endGame()

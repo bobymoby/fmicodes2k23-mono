@@ -30,13 +30,13 @@ export class TaskController {
     }
 
     @ApiOperation({ summary: 'Run test by id' })
-    @Post('test/:id')
+    @Get('test/:id')
     test(@Param('id') id: number) {
         return this.testService.runTest(id)
     }
 
     @ApiOperation({ summary: "Run all task's tests by taskId" })
-    @Post(':id/tests')
+    @Get(':id/tests')
     allTests(@Param('id') id: number) {
         return this.testService.runTests(id)
     }
