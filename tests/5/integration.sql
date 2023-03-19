@@ -1,5 +1,5 @@
 INSERT INTO 'task' ('title', 'description')
-VALUES ('Task 5', 'write a function which takes a string and returns it with only alpha-neumerical characters')
+VALUES ('Alpha-neumerical', 'write a function which takes a string and returns it with only alpha-neumerical characters')
 
 INSERT INTO 'test' ('input', 'output')
 VALUES ('asd-1234&&&', 'asd1234')
