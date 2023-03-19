@@ -8,8 +8,7 @@ import { TaskService } from './task.service'
 
 @Injectable()
 export class TestService {
-    private readonly TEST_PATH =
-        'C:\\Users\\imbob\\Desktop\\fmicodes2k23-mono\\tests\\'
+    private readonly TEST_PATH = '~/tests/'
     constructor(
         @InjectRepository(Test)
         private readonly testRepository: Repository<Test>,
@@ -25,7 +24,8 @@ export class TestService {
         }
         const { input } = test
         const { code } = test.task
-        const idPath = `${this.TEST_PATH}${id}`
+        // const idPath = `${this.TEST_PATH}${id}`
+        const idPath = `${id}`
         fs.writeFileSync(`${idPath}.py`, code)
         fs.writeFileSync(`${idPath}.in`, input)
         let error = false
@@ -33,7 +33,7 @@ export class TestService {
         let stderr
         try {
             const data = await execAsync(
-                `type ${idPath}.in | python -I ${idPath}.py`,
+                `cat ${idPath}.in | python ${idPath}.py`,
                 {},
             )
             stdout = data.stdout
