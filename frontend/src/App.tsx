@@ -11,6 +11,7 @@ import { JoinPage } from './Pages/JoinPage/JoinPage'
 import { RulesPage } from './Pages/RulesPage/RulesPage'
 import { EndGamePage } from './Pages/EndGamePage/EndGamePage'
 import { useState } from 'react'
+import { Kick } from './Pages/KickPage/Kick'
 
 function App() {
     const [shouldRedirect, setShouldRedirect] = useState(false)
@@ -19,10 +20,14 @@ function App() {
     }
     return (
         <BrowserRouter>
+        <head>
+            <meta name="viewport" content="initial-scale=1, user-scalable=no"></meta>
+        </head>
             <Routes>
                 <Route path="/" element={<LoginPage />} />
                 <Route path="/reg" element={<RegisterPage />} />
                 <Route path="/poc" element={<POCEvent />} />
+                <Route path="kick" element={<Kick id="123" username='user' image="image"/>} />
                 <Route
                     path="/room"
                     element={
