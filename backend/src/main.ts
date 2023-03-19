@@ -12,7 +12,7 @@ async function bootstrap() {
 
     if (process.env.MODE === 'DEV') {
         const config = new DocumentBuilder()
-            .setTitle('API Routes')
+            .setTitle('deBug API Routes')
             .setVersion('1.0')
             .build()
         const document = SwaggerModule.createDocument(app, config)

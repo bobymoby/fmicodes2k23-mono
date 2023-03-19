@@ -1,3 +1,3 @@
 export const CONSTANTS = {
-    SERVER: '10.108.6.246:3000',
+    SERVER: '192.168.187.179:3000',
 }

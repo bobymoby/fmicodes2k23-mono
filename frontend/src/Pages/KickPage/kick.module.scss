@@ -14,6 +14,25 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.fadeText {
+    animation: fadeIn 5s;
+    color: red;
+    font-weight: bold;
+}
+
 .cart {
     color: rgba(255, 255, 255, 1);
     left: 1%;
@@ -102,7 +121,7 @@
     padding-top: 10px;
     text-align: center;
 }
-.bottom{
+.bottom {
     font-size: 30px;
     position: absolute;
     top: 80%;

@@ -9,8 +9,13 @@ export function Kick(props: any) {
     return (
         <div className={styles.container}>
             <LobbyCard image={props.image} name={props.username} />
-            <div className={styles.cart}>Was Kicked</div>
-            <div className={styles.bottom}> {props.username} was the bug</div>
+            <div className={styles.cart}>
+                <p>
+                    was kicked...{' '}
+                    <span className={styles.fadeText}>they were the bug.</span>
+                </p>
+            </div>
+
             <Countdown
                 date={Date.now() + 5000}
                 renderer={() => null}
