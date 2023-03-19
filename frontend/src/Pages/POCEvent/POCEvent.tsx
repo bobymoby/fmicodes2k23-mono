@@ -58,9 +58,18 @@ export const POCEvent = () => {
                         .filter((res: any) => res.taskTitle === task.title)
                         .map((res: any, index: number) => {
                             return (
-                                <p>
-                                    test {index + 1}:{res.status}
-                                </p>
+                                <>
+                                    <p>
+                                        test {index + 1}:{res.status}
+                                    </p>
+                                    {res.status === 'error' ? (
+                                        <p>
+                                            {res.fails[index]?.result?.message}
+                                        </p>
+                                    ) : (
+                                        <></>
+                                    )}
+                                </>
                             )
                         })}
                 </div>

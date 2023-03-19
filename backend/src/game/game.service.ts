@@ -41,7 +41,7 @@ export class GameService {
     findOne(id: string) {
         return this.gameRepository.findOne({
             where: { id },
-            relations: ['users'],
+            relations: ['users', 'tasks', 'imposter'],
         })
     }
 

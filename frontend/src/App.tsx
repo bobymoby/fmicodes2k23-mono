@@ -80,22 +80,12 @@ function App() {
                                 players={[
                                     {
                                         id: 'aa',
-                                        username: 'borimir',
-                                        image: 'aab',
-                                    },
-                                    {
-                                        id: 'aa',
                                         username: 'pavel',
                                         image: 'aab',
                                     },
                                     {
                                         id: 'aa',
                                         username: 'daria',
-                                        image: 'aab',
-                                    },
-                                    {
-                                        id: 'aa',
-                                        username: 'daniel',
                                         image: 'aab',
                                     },
                                 ]}
