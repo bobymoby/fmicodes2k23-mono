@@ -1,3 +1,3 @@
 export const CONSTANTS = {
-    SERVER: '10.108.6.246:3000',
+    SERVER: 'host.docker.internal:3000',
 }
