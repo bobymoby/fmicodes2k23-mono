@@ -1,8 +1,8 @@
 import styles from './login.module.scss'
 
 export const LoginPage: React.FC = () => {
-    return (    
-        <div className ={styles.bacground}>
+    return (
+        <div className={styles.bacground}>
             <div className={styles.container}>
                 <h1>Log in</h1>
                 <form>
@@ -15,13 +15,14 @@ export const LoginPage: React.FC = () => {
                         <input type="password" name="password" />
                     </div>
                     <div className={styles.card}>
-                        <button>SIGN IN</button>
+                        <a href="/join">
+                            <div>SIGN IN</div>
+                        </a>
                     </div>
                 </form>
                 <div className={styles.footer}>
                     <p>
-                        Don't have an account?{' '}
-                        <a href='/reg'>SIGN UP</a>
+                        Don't have an account? <a href="/reg">SIGN UP</a>
                     </p>
                 </div>
             </div>

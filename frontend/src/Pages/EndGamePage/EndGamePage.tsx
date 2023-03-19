@@ -19,19 +19,11 @@ export const EndGamePage: React.FC<IEndGameProps> = (props) => {
                 )}
             </div>
             <div className={styles.card}>
-                <h1>The imposter was: "{props.imposter}"</h1>
+                <h1>The imposter was: {props.imposter}</h1>
             </div>
             <div className={styles.button}>
-                <a href="/lobby" >
-                    
-                        Lobby
-                    
-                </a>
-                <a href="/join">
-                    
-                        Main Menu
-                    
-                </a>
+                <a href="/lobby">Lobby</a>
+                <a href="/join">Main Menu</a>
             </div>
         </div>
     )

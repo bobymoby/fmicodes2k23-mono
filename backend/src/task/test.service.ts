@@ -4,6 +4,7 @@ import * as fs from 'fs'
 import { execAsync } from 'src/utils/execAsync'
 import { Repository } from 'typeorm'
 import { Test } from './entities/test.entity'
+import { TaskService } from './task.service'
 
 @Injectable()
 export class TestService {
@@ -12,16 +13,21 @@ export class TestService {
     constructor(
         @InjectRepository(Test)
         private readonly testRepository: Repository<Test>,
+        private readonly taskService: TaskService,
     ) {}
-    async runTest(id: number, code: string) {
-        const test = await this.testRepository.findOne({ where: { id } })
+    async runTest(id: number) {
+        const test = await this.testRepository.findOne({
+            where: { id },
+            relations: ['task'],
+        })
         if (!test) {
             throw new NotFoundException('Test not found')
         }
         const { input } = test
+        const { code } = test.task
         const idPath = `${this.TEST_PATH}${id}`
-        await fs.writeFileSync(`${idPath}.py`, code)
-        await fs.writeFileSync(`${idPath}.in`, input)
+        fs.writeFileSync(`${idPath}.py`, code)
+        fs.writeFileSync(`${idPath}.in`, input)
         let error = false
         let stdout
         let stderr
@@ -37,8 +43,8 @@ export class TestService {
             stdout = e.stdout
             stderr = e.stderr
         }
-        await fs.unlinkSync(`${idPath}.py`)
-        await fs.unlinkSync(`${idPath}.in`)
+        fs.unlinkSync(`${idPath}.py`)
+        fs.unlinkSync(`${idPath}.in`)
 
         if (error) {
             return {
@@ -57,5 +63,32 @@ export class TestService {
             status: 'success',
             message: stdout,
         }
+    }
+
+    async runTests(taskId: number) {
+        const task = await this.taskService.taskRepository.findOne({
+            where: { id: taskId },
+            relations: ['tests'],
+        })
+        if (!task) {
+            throw new NotFoundException('Task not found')
+        }
+        const { tests } = task
+        const results = await Promise.all(
+            tests.map(async (test) => {
+                const result = await this.runTest(test.id)
+                return { test, result }
+            }),
+        )
+        const fails = results.filter(
+            (result) => result.result.status === 'error',
+        )
+        if (fails.length > 0) {
+            return {
+                status: 'error',
+                fails,
+            }
+        }
+        return { status: 'success' }
     }
 }

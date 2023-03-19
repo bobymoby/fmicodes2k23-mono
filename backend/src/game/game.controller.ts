@@ -27,6 +27,12 @@ export class GameController {
         return this.gameService.findOne(id)
     }
 
+    @ApiOperation({ summary: "Run all game's tasks' tests" })
+    @Get(':id/tests')
+    tests(@Param('id') id: string) {
+        return this.gameService.runGameTests(id)
+    }
+
     @ApiOperation({ summary: 'Join/create game' })
     @Post('join')
     @UseGuards(JwtAuthGuard)

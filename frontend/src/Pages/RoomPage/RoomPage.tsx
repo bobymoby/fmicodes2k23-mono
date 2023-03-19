@@ -5,29 +5,58 @@ import { TaskComponent } from '../../components/Task/TaskComponent'
 import { TaskConditionComponent } from '../../components/Task/TaskConditionComponent'
 import Editor from '@monaco-editor/react'
 import { socket } from '../../utils/socket'
+import { CONSTANTS } from '../../constants'
+import { useSearchParams } from 'react-router-dom'
+import Countdown from 'react-countdown'
 
-export const RoomPage: React.FC = () => {
+const USERS = [
+    'd8a9086f-1108-4c8c-991c-f34e13f0768a',
+    'af698491-968d-48a3-8331-ec519528d037',
+    '0caa98e8-ead2-4928-8015-7856f61d4b3a',
+]
+
+interface IRoomPageProps {
+    endGame: () => void
+}
+export const RoomPage: React.FC<IRoomPageProps> = ({ endGame }) => {
     const [tasks, setTasks] = useState<Task[]>([])
     const [selectedTask, setSelectedTask] = useState<Task | null>(null)
     const gameId = '3a926831-5c2b-4f65-b90e-eb79b94001cc'
     const [userId, setUserId] = useState('')
     const [code, setCode] = useState('')
+    const [time, setTime] = useState(Date().toString())
 
-    const handleUserChange = (event: any) => {
-        setUserId(event.target.value)
+    const [searchParams, setSearchParams] = useSearchParams()
+
+    const countdownRenderer = ({ minutes, seconds, completed }: any) => {
+        if (completed) {
+            return <span>Time is up</span>
+        }
+        return (
+            <span>
+                {String(minutes).padStart(2, '0')}:
+                {String(seconds).padStart(2, '0')}
+            </span>
+        )
     }
-    const handleConnect = () => {
+
+    useEffect(() => {
+        setUserId(USERS[parseInt(searchParams.get('user') || '0')])
+
+        console.log(time)
+    }, [])
+
+    useEffect(() => {
         socket.emit('getGameDetails', {
             userId,
         })
         socket.on('gameState/' + gameId, (data) => {
             setTasks(data.game.tasks)
-            // console.log(data.game.tasks)
         })
-    }
+    }, [userId])
 
     const selectTask = async (task: Task) => {
-        await fetch('http://localhost:3000/user/' + userId, {
+        await fetch(`http://${CONSTANTS.SERVER}/user/${userId}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -37,7 +66,7 @@ export const RoomPage: React.FC = () => {
             if (res.ok) {
                 if (selectedTask) {
                     await fetch(
-                        'http://localhost:3000/task/' + selectedTask.id,
+                        `http://${CONSTANTS.SERVER}/task/${selectedTask.id}`,
                         {
                             method: 'POST',
                             headers: {
@@ -57,40 +86,44 @@ export const RoomPage: React.FC = () => {
         })
     }
     return (
-        <>
-            <input type="text" value={userId} onChange={handleUserChange} />
-            <button onClick={handleConnect}>connect</button>
-            <div className={styles.container}>
-                <div className={styles.editor}>
-                    <Editor
-                        height="100%"
-                        defaultLanguage="python"
-                        language="python"
-                        value={code}
-                        // onChange={handleCodeChange}
-                        onChange={(value) => setCode(value || '')}
+        <div className={styles.container}>
+            <div className={styles.editor}>
+                <Editor
+                    height="100%"
+                    defaultLanguage="python"
+                    language="python"
+                    value={code}
+                    theme="vs-dark"
+                    // onChange={handleCodeChange}
+                    onChange={(value) => setCode(value || '')}
+                />
+            </div>
+            <div className={styles.column}>
+                <div className={styles.card}>
+                    <h2>All tasks:</h2>
+                    {tasks.map((task: Task) => {
+                        return (
+                            <TaskComponent
+                                task={task}
+                                onClick={() => {
+                                    selectTask(task)
+                                }}
+                            />
+                        )
+                    })}
+                </div>
+                <div className={styles.card}>
+                    <TaskConditionComponent task={selectedTask} />
+                    <Countdown
+                        // date={Date.now() + 180000}
+                        date={Date.now() + 10000}
+                        renderer={countdownRenderer}
+                        onComplete={() => {
+                            endGame()
+                        }}
                     />
                 </div>
-                <div className={styles.column}>
-                    <div className={styles.card}>
-                        <h2>All tasks:</h2>
-                        {tasks.map((task: Task) => {
-                            return (
-                                <TaskComponent
-                                    task={task}
-                                    onClick={() => {
-                                        selectTask(task)
-                                    }}
-                                />
-                            )
-                        })}
-                    </div>
-                    <div className={styles.card}>
-                        <TaskConditionComponent task={selectedTask} />
-                        <button onClick={() => {}}> Submit Task</button>
-                    </div>
-                </div>
             </div>
-        </>
+        </div>
     )
 }

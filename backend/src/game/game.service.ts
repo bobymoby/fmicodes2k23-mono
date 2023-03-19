@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Socket } from 'dgram'
 import { TaskService } from 'src/task/task.service'
+import { TestService } from 'src/task/test.service'
 import { UserService } from 'src/user/user.service'
 import { randUnder } from 'src/utils/randUnder'
 import { Repository } from 'typeorm'
@@ -15,6 +16,7 @@ export class GameService {
         private gameRepository: Repository<Game>,
         private readonly userService: UserService,
         private readonly taskService: TaskService,
+        private readonly testService: TestService,
     ) {}
     async create(userId: string, privateGame = false) {
         const user = await this.userService.findOne(userId)
@@ -121,5 +123,22 @@ export class GameService {
             this.gameRepository.save(game)
         }
         client.emit('gameState/' + game.id, { game })
+    }
+
+    async runGameTests(gameId: string) {
+        const game = await this.gameRepository.findOne({
+            where: { id: gameId },
+            relations: ['tasks', 'tasks.tests'],
+        })
+        if (!game) {
+            throw new NotFoundException('Game not found')
+        }
+        const tasks = game.tasks
+        const tests = tasks.map((task) => task.tests).flat()
+        const results = await Promise.all(
+            tests.map((test) => this.testService.runTest(test.id)),
+        )
+        const fails = results.filter((result) => result.status === 'error')
+        return { total: tests.length, fails: fails.length }
     }
 }

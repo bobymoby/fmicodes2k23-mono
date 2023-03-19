@@ -7,7 +7,7 @@ import { Task } from './entities/task.entity'
 export class TaskService {
     constructor(
         @InjectRepository(Task)
-        private readonly taskRepository: Repository<Task>,
+        public readonly taskRepository: Repository<Task>,
     ) {}
     findAll() {
         return this.taskRepository.find({ relations: ['tests'] })

@@ -29,10 +29,16 @@ export class TaskController {
         return this.taskService.create()
     }
 
-    @ApiOperation({ summary: 'Run test by id(code: string body)' })
+    @ApiOperation({ summary: 'Run test by id' })
     @Post('test/:id')
-    test(@Param('id') id: number, @Body('code') code: string) {
-        return this.testService.runTest(id, code)
+    test(@Param('id') id: number) {
+        return this.testService.runTest(id)
+    }
+
+    @ApiOperation({ summary: "Run all task's tests by taskId" })
+    @Post(':id/tests')
+    allTests(@Param('id') id: number) {
+        return this.testService.runTests(id)
     }
 
     @ApiOperation({ summary: 'Set task code' })
