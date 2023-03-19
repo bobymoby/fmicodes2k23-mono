@@ -9,7 +9,7 @@ export function Kick(props: Player) {
     return (
         <div className={styles.container}>
             <LobbyCard image={props.image} name={props.username}/>
-            <div className={styles.card}>... Was Kicked</div>
+            <div className={styles.cart}>... Was Kicked</div>
             <div className={styles.bottom}> {props.username} was imposter</div>
         </div>
     )
